@@ -4,23 +4,24 @@ import validators
 
 def DiscordRPC():
     client_id = client_id_input.get(1.0, "end-1c")
-    is_empty = bool(client_id)
-    if is_empty == False:
+    if bool(client_id) == False:
         return None
     description_1 = description_1_input.get(1.0, "end-1c")
-    is_empty = bool(description_1)
-    if is_empty == False:
+    if bool(description_1) == False:
         description_1 = "  "
     description_2 = description_2_input.get(1.0, "end-1c")
-    is_empty = bool(description_2)
-    if is_empty == False:
+    if bool(description_2) == False:
         description_2 = "  "
     button_1 = button_1_label_input.get(1.0, "end-1c")
+    if bool(button_1) == False:
+        description_2 = "  "
     button_1_url = button_1_url_input.get(1.0, "end-1c")
     if bool(button_1_url) == True:
         if validators.url(button_1_url) != True:
             return None
     button_2 = button_2_label_input.get(1.0, "end-1c")
+    if bool(button_2) == False:
+        description_2 = "  "
     button_2_url = button_2_url_input.get(1.0, "end-1c")
     if bool(button_2_url) == True:
         if validators.url(button_2_url) != True:
@@ -53,21 +54,21 @@ client_id_input = Text(window, height=1, width=25)
 client_id_input.place(x=250, y=120, anchor='center')
 
 # description line 1
-description_1_text = Label(window, text="Description line 1: (required)", font=("arial",10,"bold"))
+description_1_text = Label(window, text="Description line 1:", font=("arial",10,"bold"))
 description_1_text.place(x=250, y=140, anchor="center")
 
 description_1_input = Text(window, height=1, width=25)
 description_1_input.place(x=250, y=160, anchor='center')
 
 # description line 2
-description_2_text = Label(window, text="Description line 2: (required)", font=("arial",10,"bold"))
+description_2_text = Label(window, text="Description line 2:", font=("arial",10,"bold"))
 description_2_text.place(x=250, y=180, anchor="center")
 
 description_2_input = Text(window, height=1, width=25)
 description_2_input.place(x=250, y=200, anchor='center')
 
 # button 1 label
-button_1_label = Label(window, text="Button 1 label: (required)", font=("arial",10,"bold"))
+button_1_label = Label(window, text="Button 1 label:", font=("arial",10,"bold"))
 button_1_label.place(x=250, y=220, anchor="center")
 
 button_1_label_input = Text(window, height=1, width=25)
@@ -81,7 +82,7 @@ button_1_url_input = Text(window, height=1, width=25)
 button_1_url_input.place(x=250, y=280, anchor='center')
 
 # button 2 label
-button_2_label = Label(window, text="Button 2 label: (required)", font=("arial",10,"bold"))
+button_2_label = Label(window, text="Button 2 label:", font=("arial",10,"bold"))
 button_2_label.place(x=250, y=300, anchor="center")
 
 button_2_label_input = Text(window, height=1, width=25)
